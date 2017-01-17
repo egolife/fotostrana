@@ -2,6 +2,9 @@
 
 namespace FotoStrana\Http\Controllers;
 
+use FotoStrana\Post;
+use Illuminate\Contracts\View\View;
+
 class HomeController extends Controller
 {
     /**
@@ -17,10 +20,12 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|View
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with([
+            'posts' => Post::all()
+        ]);
     }
 }

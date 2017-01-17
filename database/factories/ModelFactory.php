@@ -12,12 +12,31 @@
 */
 
 $factory->define(FotoStrana\User::class, function (Faker\Generator $faker) {
-    static $password;
+    static $password, $i = 0;
+    $i++;
 
     return [
-        'name' => $faker->name,
+        'name' => 'user' . $i,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('password'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(FotoStrana\Post::class, function (Faker\Generator $faker) {
+
+    return [
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph(10, true),
+        'author_id' => function () {
+            return factory(\FotoStrana\User::class)->create()->id;
+        },
+    ];
+});
+
+$factory->define(FotoStrana\Category::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word,
     ];
 });

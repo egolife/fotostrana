@@ -20,5 +20,6 @@ elixir(function (mix) {
             './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
             'app.js'
         ])
+        .copy('./node_modules/bootstrap-sass/assets/fonts', 'public/build/fonts')
         .version(['css/app.css', 'js/all.js']);
 });

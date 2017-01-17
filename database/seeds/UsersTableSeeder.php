@@ -1,5 +1,6 @@
 <?php
 
+use FotoStrana\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        User::truncate();
+        factory(User::class, 10)->create();
     }
 }
