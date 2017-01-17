@@ -9,14 +9,12 @@
 
                     <div class="panel-body">
                         @foreach($posts as $post)
-                            <article class="feed-item">
+                            <article class="feed-item js-feed-item">
                                 <h4>{{ $post->title }}</h4>
                                 <p>{{ str_limit($post->body) }}</p>
 
                                 <div class="feed-item-likes">
-                                    <a href="{{ route('posts.like', $post->id) }}" class="text-danger js-like">
-                                        @include('likes.link')
-                                    </a>
+                                    @include('likes.link')
                                 </div>
                             </article>
 

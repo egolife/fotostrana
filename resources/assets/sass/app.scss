@@ -12,9 +12,17 @@
     top: 0;
     right: 1em;
 
-    a{
+    a {
       text-decoration: none;
     }
+  }
+
+  .liked-users {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 1em;
+    z-index: 10;
   }
 }
 

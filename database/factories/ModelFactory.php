@@ -27,7 +27,7 @@ $factory->define(FotoStrana\Post::class, function (Faker\Generator $faker) {
 
     return [
         'title' => $faker->sentence,
-        'body' => $faker->paragraph(10, true),
+        'body' => $faker->paragraph(2, true),
         'author_id' => function () {
             return factory(\FotoStrana\User::class)->create()->id;
         },
