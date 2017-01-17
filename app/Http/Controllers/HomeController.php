@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->with([
-            'posts' => Post::all()
+            'posts' => Post::with('liked')->get()
         ]);
     }
 }

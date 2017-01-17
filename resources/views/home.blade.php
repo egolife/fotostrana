@@ -14,9 +14,8 @@
                                 <p>{{ str_limit($post->body) }}</p>
 
                                 <div class="feed-item-likes">
-                                    <a href="#" class="text-danger">
-                                        {{ $post->liked->count() }}
-                                        <i class="glyphicon glyphicon-heart{{ $post->likedByUser() ? '-empty' : '' }}"></i>
+                                    <a href="{{ route('posts.like', $post->id) }}" class="text-danger js-like">
+                                        @include('likes.link')
                                     </a>
                                 </div>
                             </article>
