@@ -12,6 +12,11 @@
                             <article class="feed-item js-feed-item">
                                 <h4>{{ $post->title }}</h4>
                                 <p>{{ str_limit($post->body) }}</p>
+                                @foreach($post->categories as $category)
+                                    <a href="?category={{ $category->id }}">
+                                        <span class="label label-success">{{ $category->name }}</span>
+                                    </a>
+                                @endforeach
 
                                 <div class="feed-item-likes">
                                     @include('likes.link')

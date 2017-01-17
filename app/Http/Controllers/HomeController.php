@@ -24,8 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $query = request('category') ? Post::whereHas('categories', function ($query) {
+            $query->where('id', request('category'));
+        }) : Post::query();
+
         return view('home')->with([
-            'posts' => Post::with('liked')->get()
+            'posts' => $query->with('liked', 'categories')->get()
         ]);
     }
 }
